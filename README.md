@@ -13,15 +13,25 @@ Buoc 2: source install/setup.bash
 
 Điều khiển chuyển động banh xe va tay may bang ban phim của robot base (4 bánh omni):
 
-python3 src/urdf1/scripts/super_teleop.py
+Buoc 1: Mo 1 terminal moi
+
+Buoc 2: source install/setup.bash
+
+Buoc 3:  python3 src/urdf1/scripts/super_teleop.py
 
 
 ### *Dieu khien Tay Robot (2 Khớp) den vi tri mong muon *:
+Buoc 1: Mo 1 terminal moi
 
-python3 src/urdf1/scripts/move_arm.py
+Buoc 2: source install/setup.bash
+
+Buoc 3: python3 src/urdf1/scripts/move_arm.py
 
 
 ### * Hien thi thong so cam bien*:
+Buoc 1: Mo 1 terminal moi
+
+Buoc 2: source install/setup.bash
 1. thong so encorder:  python3 src/urdf1/scripts/read_encoder.py
 2. thong so IMU : python3 src/urdf1/scripts/read_imu.py
 
