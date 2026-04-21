@@ -1,37 +1,93 @@
-# Du an ROS 2- XE 4 banh Onmi with tay may(2DOF)
-# Các bước để chạy được package:
-Buoc 1. chay lenh :  cd ~/ros2_ws
+# Dự án ROS 2 – Xe 4 bánh Omni + Tay máy (2DOF)
 
-Buoc 2: source install/setup.bash
+##  Các bước chạy package
 
-### * Hiển thị cung luc Model trên gazebo va RViz *: 
+### Bước 1: Di chuyển đến workspace
 
-  ros2 launch urdf1 gazebo.launch.py
+```bash
+cd ~/ros2_ws
+```
 
+### Bước 2: Source môi trường
 
-### * Điều Khiển Robot Omni *
+```bash
+source install/setup.bash
+```
 
-Điều khiển chuyển động banh xe va tay may bang ban phim của robot base (4 bánh omni):
+---
 
-Buoc 1: Mo 1 terminal moi
+## Hiển thị model trên Gazebo + RViz
 
-Buoc 2: source install/setup.bash
+```bash
+ros2 launch urdf1 gazebo.launch.py
+```
 
-Buoc 3:  python3 src/urdf1/scripts/super_teleop.py
+---
 
+## Điều khiển robot Omni (bằng bàn phím)
 
-### *Dieu khien Tay Robot (2 Khớp) den vi tri mong muon *:
-Buoc 1: Mo 1 terminal moi
+### Bước 1: Mở terminal mới
 
-Buoc 2: source install/setup.bash
+### Bước 2:
 
-Buoc 3: python3 src/urdf1/scripts/move_arm.py
+```bash
+source install/setup.bash
+```
 
+### Bước 3:
 
-### * Hien thi thong so cam bien*:
-Buoc 1: Mo 1 terminal moi
+```bash
+python3 src/urdf1/scripts/super_teleop.py
+```
 
-Buoc 2: source install/setup.bash
-1. thong so encorder:  python3 src/urdf1/scripts/read_encoder.py
-2. thong so IMU : python3 src/urdf1/scripts/read_imu.py
+---
+
+## Điều khiển tay máy (2DOF)
+
+### Bước 1: Mở terminal mới
+
+### Bước 2:
+
+```bash
+source install/setup.bash
+```
+
+### Bước 3:
+
+```bash
+python3 src/urdf1/scripts/move_arm.py
+```
+
+---
+
+##  Hiển thị thông số cảm biến
+
+### Bước 1: Mở terminal mới
+
+### Bước 2:
+
+```bash
+source install/setup.bash
+```
+
+### 🔹 Encoder
+
+```bash
+python3 src/urdf1/scripts/read_encoder.py
+```
+
+### 🔹 IMU
+
+```bash
+python3 src/urdf1/scripts/read_imu.py
+```
+
+---
+
+##  Ghi chú
+
+* Đảm bảo đã `colcon build` trước khi chạy
+* Kiểm tra package `urdf1` đã tồn tại trong workspace
+
+---
 
