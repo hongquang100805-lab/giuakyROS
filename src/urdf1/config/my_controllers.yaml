@@ -1,0 +1,80 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # Khai báo các bộ điều khiển
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    mobile_base_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# 1. Cấu hình bộ đọc trạng thái khớp
+joint_state_broadcaster:
+  ros__parameters: {}
+
+# 2. Cấu hình điều khiển xe (4 bánh chạy kiểu Diff Drive)
+mobile_base_controller:
+  ros__parameters:
+    left_wheel_names: ["ttjoint", "stjoint"]
+    right_wheel_names: ["tpjoint", "spjoint"]
+
+    wheel_separation: 0.21
+    wheel_radius: 0.0325
+
+    use_stamped_vel: false
+
+    base_frame_id: base_footprint
+    odom_frame_id: odom
+    enable_odom_tf: true
+
+    stop_velocity_tolerance: 0.01
+
+    linear:
+      x:
+        has_velocity_limits: true
+        max_velocity: 1.0
+        has_acceleration_limits: true
+        max_acceleration: 2.0
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 2.0
+        has_acceleration_limits: true
+        max_acceleration: 3.0
+
+# 3. Cấu hình điều khiển tay máy (ĐÃ SỬA)
+arm_controller:
+  ros__parameters:
+    joints:
+      - jointlink1
+      - jointlink2
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position  # Đã xóa "- velocity" để khớp với URDF của bạn
+    
+    # Chế độ điều khiển vòng hở (giúp chạy mượt hơn trong mô phỏng)
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+    # Thông số PID
+    gains:
+      jointlink1:
+        p: 100.0
+        i: 1.0
+        d: 10.0
+        i_clamp: 1.0
+      jointlink2:
+        p: 500.0
+        i: 10.0
+        d: 20.0
+        i_clamp: 1.0
+
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
