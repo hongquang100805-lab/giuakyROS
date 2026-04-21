@@ -1,22 +1,23 @@
 # Dự án ROS 2 – Xe 4 bánh Omni + Tay máy (2DOF)
 
-##  Các bước chạy package
-
-### Bước 1: Di chuyển đến workspace
-
-```bash
-cd ~/ros2_ws
-```
-
-### Bước 2: Source môi trường
-
-```bash
-source install/setup.bash
-```
+![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)
 
 ---
 
-## Hiển thị model trên Gazebo + RViz
+##  Clone & Quick Start
+
+```bash
+git clone https://github.com/hongquang100805-lab/giuakyROS.git
+cd giuakyROS
+colcon build
+source install/setup.bash
+```
+---
+
+
+
+## Hiển thị mô phỏng (Gazebo + RViz)
 
 ```bash
 ros2 launch urdf1 gazebo.launch.py
@@ -42,7 +43,7 @@ python3 src/urdf1/scripts/super_teleop.py
 
 ---
 
-## Điều khiển tay máy (2DOF)
+##  Điều khiển tay máy (2DOF) den vi tri mong muon 
 
 ### Bước 1: Mở terminal mới
 
@@ -58,9 +59,10 @@ source install/setup.bash
 python3 src/urdf1/scripts/move_arm.py
 ```
 
+
 ---
 
-##  Hiển thị thông số cảm biến
+## Hiển thị dữ liệu cảm biến
 
 ### Bước 1: Mở terminal mới
 
@@ -81,13 +83,6 @@ python3 src/urdf1/scripts/read_encoder.py
 ```bash
 python3 src/urdf1/scripts/read_imu.py
 ```
-
----
-
-##  Ghi chú
-
-* Đảm bảo đã `colcon build` trước khi chạy
-* Kiểm tra package `urdf1` đã tồn tại trong workspace
 
 ---
 
