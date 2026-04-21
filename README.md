@@ -1,7 +1,8 @@
 # Du an ROS 2- XE 4 banh Onmi with tay may(2DOF)
 # Các bước để chạy được package:
-1. dung len : cd ~/ros2_ws
-2: source install/setup.bash
+Buoc 1. dung len : cd ~/ros2_ws
+
+Buoc 2: source install/setup.bash
 
 ### * Hiển thị cung luc Model trên gazebo va RViz *
 
